@@ -15,10 +15,12 @@ ActiveStorage.start()
 require("trix")
 require("@rails/actiontext")
 
+import Sortable from 'sortablejs'
+
 import '../stylesheets/application';
 
 document.addEventListener('turbolinks:load', () => {
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (event) => {
         let element = event.target.closest('.paragraph-content')
         if (!element) return;
 
@@ -26,13 +28,17 @@ document.addEventListener('turbolinks:load', () => {
         element.nextElementSibling.classList.remove('d-none')
     })
 
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (event) => {
         if (!event.target.matches('.cancel')) return;
+        event.preventDefault()
 
         let element = event.target.closest('.paragraph-form')
 
         element.classList.add('d-none')
         element.previousElementSibling.classList.remove('d-none')
     })
+
+    let element = document.getElementById('elements')
+    Sortable.create(elements, { animation: 150 })
 })
 import "controllers"

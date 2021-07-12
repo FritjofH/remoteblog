@@ -38,7 +38,10 @@ document.addEventListener('turbolinks:load', () => {
         element.previousElementSibling.classList.remove('d-none')
     })
 
-    let element = document.getElementById('elements')
-    Sortable.create(elements, { animation: 150 })
+    if (document.getElementById('elements')) {
+      let element = document.getElementById('elements')
+      Sortable.create(elements, { animation: 150 })
+    }
 })
+
 import "controllers"

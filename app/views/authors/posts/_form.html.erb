@@ -1,14 +1,24 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, data: { remote: "true" }) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row mx-0">
     <%= form.label :title %>
     <%= form.text_field :title, class: 'form-control' %>
-    <%= form.error_for :title, class: 'text-danger' %>
   </div>
 
   <div class="row mx-0">
     <%= form.label :description %>
     <%= form.text_area :description, class: 'form-control' %>
-    <%= form.error_for :description, class: 'text-danger' %>
   </div>
 
   <div class="row mx-0">

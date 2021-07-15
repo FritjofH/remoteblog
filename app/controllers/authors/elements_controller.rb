@@ -18,7 +18,9 @@ module Authors
 
     # PATCH/PUT /elements/1
     def update
-      @element.update(element_params)
+      if (@element.update(element_params))
+        redirect_to edit_post_path(@element.post)
+      end
     end
 
     # DELETE /elements/1

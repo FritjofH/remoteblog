@@ -24,7 +24,7 @@ module Authors
       if @post.save
         redirect_to edit_post_path(@post)
       else
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
 
@@ -33,7 +33,7 @@ module Authors
       if @post.update(post_params)
         redirect_to edit_post_path(@post)
       else
-        render :edit
+        render :edit, status: :unprocessable_entity
       end
     end
 

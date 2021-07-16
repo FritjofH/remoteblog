@@ -3,12 +3,17 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import mrujs from "mrujs";
+import CableReady from "cable_ready"
+import mrujs, { CableCar } from "mrujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-mrujs.start();
+mrujs.start({
+  plugins: [
+    new CableCar(CableReady)
+  ]
+})
 Turbolinks.start()
 ActiveStorage.start()
 
@@ -48,8 +53,8 @@ document.addEventListener('turbolinks:load', () => {
     element.classList.add('d-none')
     element.previousElementSibling.classList.remove('d-none')
   
-    //var html = "<div class='trix-content'>" + element.content.body.html_safe + "</div>"
-    //element.previousElementSibling.innerHTML = html
+    var html = "<div class='trix-content'>" + element.content.body.html_safe + "</div>"
+    element.previousElementSibling.innerHTML = html
   })
 
   if (document.getElementById('elements')) {

@@ -49,11 +49,11 @@ document.addEventListener('turbolinks:load', () => {
   document.addEventListener('click', (event) => {
     if (!event.target.matches('.close')) return;
     let element = event.target.closest('.paragraph-form')
-  
+
     element.classList.add('d-none')
     element.previousElementSibling.classList.remove('d-none')
   
-    var html = "<div class='trix-content'>" + element.content.body.html_safe + "</div>"
+    var html = "<div class='trix-content'>" + element.querySelector("input[name='element[content]']").value + "</div>"
     element.previousElementSibling.innerHTML = html
   })
 

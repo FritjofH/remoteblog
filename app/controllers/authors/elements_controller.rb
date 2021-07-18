@@ -7,7 +7,7 @@ module Authors
     def create
       @element = @post.elements.build(element_params)
 
-      if @element.save
+      if (@element.save)
         notice = nil
       else
         notice = @element.errors.full_messages.join(". ") << "."

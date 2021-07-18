@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'friendly_id', '~> 5.4.0'
 
+gem 'impressionist'
+
 gem "stimulus_reflex", "~> 3.4"
 
 group :development, :test do

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   
   root to: "readers/home#index"
   get '/blog/:id' => 'readers/posts#show', as: :blog_post
-
+  
   scope module: 'authors' do
+    get 'stats' => 'stats#index'
     resources :posts do
       resources :elements
     end

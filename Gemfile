@@ -15,16 +15,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 #gem 'turbolinks', '~> 5'
-
-#Removing backport (1.2.0)
-#Removing rack-contrib (2.3.0)
-#Removing autoprefixer-rails (10.2.5.1)
-#Removing simple_form (5.1.0)
-#Removing readapt (1.4.1)
-#Removing bootstrap-sass (3.4.1)
-#Removing meta_request (0.7.2)
-#Removing jbuilder (2.11.2)
-#Removing execjs (2.8.1)
+gem 'acts-as-taggable-on', '~> 7.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

@@ -3,8 +3,8 @@
     <div class="card post-card mb-5">
       <div class="header-image" style="background-image: url(<%= url_for(@post.header_image) %>)"></div>
       <div class="card-body">
-        <div class='pt-4 pb-4 pe-5 ps-5'>
-          <h1 class="card-title mb-5"><%= @post.title%></h1>
+        <div class='pe-5 ps-5'>
+          <h1 class="card-title mb-4"><%= @post.title%></h1>
           <% @post.elements.each do |element| %>
             <% if element.image? %>
               <div class="image-element mb-5">
@@ -16,7 +16,12 @@
               </div>
             <% end %>
           <% end %>
-          </div>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-center">
+        <% @tags.each do |tag |%>
+          <span class="badge bg-secondary me-1"><%= tag.name %></span>
+        <% end %>
       </div>
     </div>
   </div>

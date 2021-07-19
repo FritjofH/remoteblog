@@ -27,7 +27,7 @@ module Authors
         render :new, status: :unprocessable_entity
       end
     end
-
+    
     # PATCH/PUT /posts/1
     def update
       if @post.update(post_params)
@@ -51,7 +51,7 @@ module Authors
 
       # Only allow a list of trusted parameters through.
       def post_params
-        params.require(:post).permit(:title, :description, :header_image)
+        params.require(:post).permit(:title, :description, :header_image, :tag_list)
       end
   end
 end

@@ -2,7 +2,6 @@
   <% if post.errors.any? %>
     <div id="error_explanation" class="row mx-0">
       <h4 class='text-danger'>Post could not be saved</h4>
-
       <ul>
         <% post.errors.each do |error| %>
           <li class="row mx-0 text-danger"><%= error.full_message %></li>
@@ -12,17 +11,17 @@
   <% end %>
 
   <div class="row mx-0">
-    <%= form.label :title %>
+    <%= form.label :title, class: 'form-label ' %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="row mx-0">
-    <%= form.label :description %>
+  <div class="row mt-2 mx-0">
+    <%= form.label :description, class: 'form-label' %>
     <%= form.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="row mx-0">
-    <%= form.label :header_image %>
+  <div class="row mt-2 mx-0">
+    <%= form.label :header_image, class: 'form-label' %>
     <%= form.file_field :header_image, class: 'form-control' %>
     <div>
       <% if post.header_image.present? %>

@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   friendly_id :title, use: [:slugged, :history, :finders]
 
   is_impressionable
+  acts_as_taggable_on :tags
 
   belongs_to :author
   has_many :elements

@@ -3,12 +3,12 @@
     <div class="container">
       <%= link_to "Fritjof Höst", root_path, class: "navbar-brand text-uppercase font-weight-bold" %>
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">About</a></li>
+        <li class="nav-item"><%= link_to 'About', about_path, class: "nav-link text-uppercase font-weight-bold" %></li>
         <li class="nav-item"><a href="https://www.linkedin.com/in/fritjof-h%C3%B6st/" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if author_signed_in? %>
-          <li class="nav-item"><a href="/posts" class='nav-link text-uppercase font-weight-bold'>Posts</a></li>
+          <li class="nav-item"><%= link_to 'Posts', posts_path, class: 'nav-link text-uppercase font-weight-bold' %></li>
           <li class="nav-item"><%= link_to 'Edit Account', edit_author_registration_path, class: 'nav-link text-uppercase font-weight-bold' %></li>
           <li class="nav-item"><%= button_to "Sign Out", destroy_author_session_path, method: :delete, class: 'nav-link text-uppercase text-danger font-weight-bold btn btn-link border-0' %></li>
         <% else %>

@@ -17,9 +17,14 @@
           </div>
           <div class="col-md-10">
             <% if post.published? %>
-              <span class='badge bg-primary mb-3'>Published</span>
+              <div class="mb-1">
+                <span class='badge bg-primary'>Published</span>
+                <span class="align-middle text-secondary"><%= post.published_at.to_s(:nozone)%></span>
+              </div>
             <% else %>
-              <span class='badge bg-secondary mb-3'>Unpublished</span>
+              <div class="mb-1">
+                <span class='badge bg-secondary'>Unpublished</span>
+              </div>
             <% end %>
             <h5 class='card-title mb-1 text-dark'><%= post.title %></h5>
             <p class='text-secondary mb-0'><%= post.description %></p>

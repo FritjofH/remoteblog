@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+import 'bootstrap'
 import CableReady from "cable_ready"
 import mrujs, { CableCar } from "mrujs"
 import Turbolinks from "turbolinks"

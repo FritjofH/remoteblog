@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :elements
   devise_for :authors
   get 'home/index'
+  get '/about', to: 'readers/about#index'
   
   root to: "readers/home#index"
   get '/blog/:id' => 'readers/posts#show', as: :blog_post

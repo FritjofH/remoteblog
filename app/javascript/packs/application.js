@@ -21,8 +21,6 @@ ActiveStorage.start()
 const Trix = require("trix")
 require("@rails/actiontext")
 
-import Chart from 'chart.js/auto';
-
 Trix.config.blockAttributes.heading1.tagName = "h3";
 
 import Sortable from 'sortablejs'
@@ -31,42 +29,6 @@ import "controllers"
 import '../stylesheets/application';
 
 document.addEventListener('turbolinks:load', () => {
-  
-  var ctx = document.getElementById('page-views');
-  if (ctx) {
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: JSON.parse(ctx.dataset.labels),
-        datasets: [{
-          label: 'Page Views',
-          data: JSON.parse(ctx.dataset.data),
-          fill: true,
-          borderColor: 'rgb(0, 153, 153)',
-          backgroundColor: 'rgb(10, 153, 153, 0.2)',
-          tension: 0.1
-        }]
-      },
-    });
-  }
-
-  var ctx = document.getElementById('unique-page-views');
-  if (ctx) {
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: JSON.parse(ctx.dataset.labels),
-        datasets: [{
-          label: 'Unique Page Views',
-          data: JSON.parse(ctx.dataset.data),
-          fill: true,
-          borderColor: 'rgb(255, 51, 51)',
-          backgroundColor: 'rgb(255, 51, 51, 0.2)',
-          tension: 0.1
-        }]
-      }
-    });
-  }
 
   document.addEventListener('click', (event) => {
     let element = event.target.closest('.paragraph-content')

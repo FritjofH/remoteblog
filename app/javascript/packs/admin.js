@@ -1,4 +1,5 @@
-import Chart from 'chart.js/auto';
+import {Chart, LineElement, LineController, CategoryScale, LinearScale, PointElement} from 'chart.js';
+Chart.register(LineElement, LineController, CategoryScale, LinearScale, PointElement);
 
 document.addEventListener('turbolinks:load', () => {
   

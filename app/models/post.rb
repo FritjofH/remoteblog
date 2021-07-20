@@ -6,9 +6,9 @@ class Post < ApplicationRecord
   acts_as_taggable_on :tags
 
   belongs_to :author
-  has_many :elements
+  has_many :elements, dependent: :delete_all
 
-  has_one_attached :header_image
+  has_one_attached :header_image, dependent: :delete_all
 
   validates_presence_of :title, :description
   validates_length_of :description, within: 50..250

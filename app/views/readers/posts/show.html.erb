@@ -10,10 +10,13 @@
               </small>
           </em>
           <h1 class="card-title mb-4"><%= @post.title%></h1>
-          <% @post.elements.each do |element| %>
+          <% @post.elements.order(position: :asc).each do |element| %>
             <% if element.image? %>
               <div class="image-element mb-5">
                 <%= image_tag(element.image)%>
+                <div class="mt-1">
+                  <em><small><%= element.description %></small></em>
+                </div>
               </div>
             <% else %>
               <div class="content-element mb-5">

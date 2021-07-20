@@ -3,16 +3,15 @@ class RegistrationsController < Devise::RegistrationsController
   before_action :one_author_registered?, only: [:new, :create]
 
   def update
-    if (update_resource(current_author, author_params))
-      redirect_to root_path
-    end
+    update_resource(current_author, author_params)
+    redirect_to root_path
   end
 
   private
 
   def author_params
     params.require(:author).permit(:email, :password, :password_confirmation,
-       :current_password, author_profile_attributes: [:id, :authorname, :biography])
+       :current_password, :avatar, :name, :bio)
   end
   
   protected

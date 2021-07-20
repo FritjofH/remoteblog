@@ -5,11 +5,13 @@ class Author < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+  has_one_attached :avatar
 
-  has_one :author_profile, dependent: :destroy
-  accepts_nested_attributes_for :author_profile
+  def avatar_thumbnail
+    avatar.variant(resize: "150x150!").processed
+  end
 
-  def author_profile
-    super || build_author_profile
+  def avatar_medium
+    avatar.variant(resize: "300x300!").processed
   end
 end

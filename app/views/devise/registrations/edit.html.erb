@@ -41,17 +41,26 @@
           </div>
 
           <div class="collapse" id="authorCollapse">
-            <%= f.fields_for :author_profile do |author_profile_form| %>
-              <div class="field row pt-3 mx-3">
-                <%= author_profile_form.label :authorname, class: 'form-label' %><br />
-                <%= author_profile_form.text_field :authorname, class: "form-control" %>
+            <div class="row">
+              <div class="pt-3 pb-3 text-center">
+                <% if resource.avatar.present? %>
+                  <%= image_tag(resource.avatar_medium, class: "rounded-circle") %>
+                <% end %>
               </div>
+            </div>
+            <div class="field row pt-3 mx-3">
+                <%= f.file_field :avatar, class: "form-control" %>
+            </div>
 
-              <div class="field row pt-3 mx-3">
-                <%= author_profile_form.label :biography, class: 'form-label' %><br />
-                <%= author_profile_form.text_area :biography, class: "form-control" %>
-              </div>
-            <% end %>
+            <div class="field row pt-3 mx-3">
+              <%= f.label :name, class: 'form-label' %><br />
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+
+            <div class="field row pt-3 mx-3">
+              <%= f.label :bio, class: 'form-label' %><br />
+              <%= f.text_area :bio, class: "form-control" %>
+            </div>
           </div>
 
           <div class="field row pt-3 mx-3">

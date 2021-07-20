@@ -5,4 +5,11 @@ class Author < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+
+  has_one :author_profile, dependent: :destroy
+  accepts_nested_attributes_for :author_profile
+
+  def author_profile
+    super || build_author_profile
+  end
 end

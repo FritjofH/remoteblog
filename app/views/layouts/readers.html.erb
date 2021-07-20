@@ -14,9 +14,11 @@
 
   <body class='bg-light readers  <%= controller_name %> <%= action_name %>'>
     <%= render "layouts/header" %>
-    <div class="container">
+    <div class="container pt-3">
       <%= yield %>
     </div>
-    <%= render "layouts/footer" %>
+    <div style="padding-top: 100px;">
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>

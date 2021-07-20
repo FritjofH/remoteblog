@@ -22,12 +22,17 @@
             <% end %>
           <% end %>
         </div>
+        <div class="pe-5 ps-5">
+          <%= render 'author', post: @author %>
+        </div>
       </div>
-      <div class="card-footer d-flex justify-content-center">
-        <% @tags.each do |tag |%>
-          <span class="badge bg-secondary me-1"><%= tag.name %></span>
-        <% end %>
-      </div>
+      <% if @tags.present? %>
+        <div class="card-footer d-flex justify-content-center">
+          <% @tags.each do |tag |%>
+            <span class="badge bg-secondary me-1"><%= tag.name %></span>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

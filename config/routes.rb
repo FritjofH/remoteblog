@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :elements
-  devise_for :authors
+  devise_for :authors, controllers: { registrations: "registrations" }
   get 'home/index'
   get '/about', to: 'readers/about#index'
   

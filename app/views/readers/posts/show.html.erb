@@ -14,9 +14,11 @@
             <% if element.image? %>
               <div class="image-element mb-5">
                 <%= image_tag(element.image)%>
-                <div class="mt-1">
-                  <em><small><%= element.description %></small></em>
-                </div>
+                <% if element.description.present? %>
+                  <div class="mt-1">
+                    <em><small><%= element.description %></small></em>
+                  </div>
+                <% end %>
               </div>
             <% else %>
               <div class="content-element mb-5">
@@ -32,7 +34,7 @@
       <% if @tags.present? %>
         <div class="card-footer d-flex justify-content-center">
           <% @tags.each do |tag |%>
-            <span class="badge bg-secondary me-1"><%= tag.name %></span>
+            <%= link_to tag.name, tagged_path(tag: tag), class:"badge bg-secondary me-1 unstyled-link", style: 'color:#FFFFFF;' %>
           <% end %>
         </div>
       <% end %>

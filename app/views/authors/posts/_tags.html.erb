@@ -5,7 +5,7 @@
   <h6 class='card-title mb-1'>Add Tag</h6>
   <%= form_with(model: post, data: { remote: "true" }) do |form| %>
     <div class="row mx-0 justify-content-md-center">
-      <%= form.text_area :tag_list, value: "", class: 'form-control col-md-auto' %>
+      <%= form.text_area :tag_list, class: 'form-control col-md-auto' %>
     </div>
 
     <div class="actions mt-2 d-grid gap-2">

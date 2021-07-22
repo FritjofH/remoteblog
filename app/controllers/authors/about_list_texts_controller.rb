@@ -5,7 +5,7 @@ module Authors
 
     # POST /elements
     def create
-      @about_list_text = AboutListTexts.new(about_id: About.first.id)
+      @about_list_text = AboutListText.new(about_id: About.first.id)
       if @about_list_text.save
         redirect_to edit_about_path(@about)
       end
@@ -30,12 +30,12 @@ module Authors
       end
 
       def set_about_list_text
-        @about_list_text = AboutListTexts.where(id: params[:id]).first
+        @about_list_text = AboutListText.where(id: params[:id]).first
       end
 
       # Only allow a list of trusted parameters through.
       def about_list_texts_params
-        params.require(:about_list_texts).permit(:title, :description, :about_id)
+        params.require(:about_list_text).permit(:title, :description, :about_id)
       end
   end
 end

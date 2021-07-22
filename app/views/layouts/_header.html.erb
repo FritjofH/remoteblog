@@ -6,7 +6,9 @@
       </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item"><%= link_to 'About', about_path, class: "nav-link text-uppercase font-weight-bold align-middle" %></li>
+        <% if About.count > 0 %>
+          <li class="nav-item"><%= link_to 'About', about_path, class: "nav-link text-uppercase font-weight-bold align-middle" %></li>
+        <% end %>
         <li class="nav-item"><a href="https://www.linkedin.com/in/fritjof-h%C3%B6st/" class="nav-link text-uppercase font-weight-bold align-middle">Contact</a></li>
       </ul>
       <ul class="navbar-nav ms-auto">

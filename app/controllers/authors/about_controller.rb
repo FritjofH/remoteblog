@@ -4,6 +4,8 @@ module Authors
     def new
       if About.first == nil
         @about = About.new
+        @about.save
+        redirect_to edit_about_path(@about)
       else
         redirect_to edit_about_path(About.first)
       end

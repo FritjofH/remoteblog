@@ -1,3 +1,3 @@
-class AboutListTexts < ApplicationRecord
+class AboutListText < ApplicationRecord
   belongs_to :about
 end

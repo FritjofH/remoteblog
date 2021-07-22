@@ -8,6 +8,10 @@ module Authors
         redirect_to edit_about_path(About.first)
       end
     end
+
+    def edit
+      @about_list_text = @about.about_list_text.build
+    end
   
     def create
       if (About.first == nil)

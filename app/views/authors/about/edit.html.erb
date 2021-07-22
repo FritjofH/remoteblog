@@ -7,4 +7,68 @@
         <%= render 'form' %>
     </div>
   </div>
+  <div class="col-md-8">
+    <div class="d-flex bd-highlight mb-3">
+      <div div class="me-auto gap-2 d-md-flex">
+      <%= form_with(model: @about_list_text, url: about_about_list_texts_path(@about), method: :post) do |form| %>
+        <%= button_tag(type: 'submit', class: 'btn btn-secondary') do %>
+          <i class="fas fa-paragraph"></i>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+    <div class="card mb-5">
+      <div class="card-body pt-5">
+        <% if AboutListTexts.where(about_id: @about).none? { |about_list_text| about_list_text.persisted?} %>
+          <div class="p4 text-center">
+            <h2 class='text-secondary'>
+              <i class="fas fa-info-circle"></i>
+            </h2>
+            <p>Click the icons above to add content</p>
+          </div>
+        <% else %>
+          <ul>
+            <% AboutListTexts.where(about_id: @about).order(position: :asc).each do |list_text| %>
+              <% if list_text.persisted? %>
+                <div class="mb-3 p-2">
+                  <div class="paragraph-content">
+                    <% if list_text.title.present? || list_text.description.present? %>
+                      <ul>
+                        <li>  
+                          <b><%= list_text.title %>:</b>
+                          <%= list_text.description %>
+                        </li>
+                      </ul>
+                    <% else %>
+                      Click to add content.
+                    <% end %>
+                  </div>
+                  <div class="paragraph-form d-none">
+                    <%= form_with(model: [@about, list_text]) do |form| %>
+                      <div>
+                        <%= form.label :title, class: "form-label" %>
+                        <%= form.text_field :title, value: :title, class: "form-control" %>
+                      </div>
+                      <div class="pt-2">
+                        <%= form.label :description, class: "form-label" %>
+                        <%= form.text_field :description, value: :description, class: "form-control" %>
+                      </div>
+                      <div class="mt-3 d-flex justify-content-between">
+                        <div>
+                          <%= form.submit "Save", class: 'close btn btn-primary' %>
+                          <a href="#" class='cancel btn btn-secondary'>Cancel</a>
+                        </div>
+                        <%= link_to 'Delete', about_about_list_text_path(@about, list_text), method: :delete,
+                        class: 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

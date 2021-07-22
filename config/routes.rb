@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   end
   
   scope module: 'authors' do
-    resources :about, controller: "about", except: [:index, :show, :delete, :update]
+    resources :about, controller: "about", except: [:index, :show, :delete, :update] do
+      resources :about_list_texts
+    end
     patch '/about/:id/edit' => 'about#update'
     get '/stats' => 'stats#index'
     resources :posts do

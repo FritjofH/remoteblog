@@ -28,7 +28,9 @@
           <% end %>
         </div>
         <div class="pe-5 ps-5">
-          <%= render 'author', post: @author %>
+          <% if @post.author.avatar.attached? || @post.author.bio.present? || @post.author.name.present? %>
+            <%= render 'author', post: @author %>
+          <% end %>
         </div>
       </div>
       <% if @tags.present? %>

@@ -2,7 +2,8 @@ module Readers
   class AboutController < ReadersController
     before_action :set_about
 
-    def index
+    def show
+      @list_texts = AboutListText.where(about_id: @about.id)
     end
 
     private

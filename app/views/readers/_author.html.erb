@@ -1,17 +1,23 @@
-<div class="image text-center">
-  <%= image_tag(@post.author.avatar_thumbnail, class: "rounded-circle") %>
-</div>
-<div>
-  <h6 class="text-center pt-2">
-    <%= @post.author.name %>
-  </h6>
-</div>
-<div>
-  <p class="text-center">
-    <em>
-      <small>
-        <%= @post.author.bio %>
-      </small>
-    </em>
-  </p>
-</div>
+<% if @post.author.avatar.present? %>
+  <div class="image text-center">
+    <%= image_tag(@post.author.avatar_thumbnail, class: "rounded-circle") %>
+  </div>
+<% end %>
+<% if @post.author.name.present? %>
+  <div>
+    <h6 class="text-center pt-2">
+      <%= @post.author.name %>
+    </h6>
+  </div>
+<% end %>
+<% if @post.author.bio.present? %>
+  <div>
+    <p class="text-center">
+      <em>
+        <small>
+          <%= @post.author.bio %>
+        </small>
+      </em>
+    </p>
+  </div>
+<% end %>

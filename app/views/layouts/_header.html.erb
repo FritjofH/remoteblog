@@ -13,30 +13,28 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if author_signed_in? %>
-          <li class="nav-item">
-            <%= link_to(posts_path, class: 'btn btn-link', style: "text-decoration: none;") do %>
-              <i class="nav-link fas fa-edit align-middle"></i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to(stats_path, class: 'btn btn-link', style: "text-decoration: none;") do %>
-              <i class="nav-link fas fa-chart-area align-middle"></i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to(edit_author_registration_path, class: 'btn btn-link', style: "text-decoration: none;") do %>
-              <i class="nav-link fas fa-user-circle align-middle"></i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= button_to(new_about_path, method: :get, class: 'btn btn-link', style: "text-decoration: none;") do %>
-              <i class="nav-link fas fa-address-card align-middle"></i>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= button_to(destroy_author_session_path, method: :delete, class: 'btn btn-link', style: "text-decoration: none;") do %>
-              <i class="nav-link fas fa-sign-out-alt align-middle"></i>
-            <% end %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="dropdown-item">
+                <%= link_to 'Posts', posts_path, class: "nav-link font-weight-bold align-middle" %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to 'Stats', stats_path, class: "nav-link font-weight-bold align-middle" %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to 'Edit User', edit_author_registration_path, class: "nav-link font-weight-bold align-middle" %>
+              </li>
+              <li class="dropdown-item">
+                <%= link_to 'Edit About', new_about_path, class: "nav-link font-weight-bold align-middle" %>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="dropdown-item">
+                <%= button_to 'Sign Out', destroy_author_session_path, method: :delete, class: "nav-link align-middle btn btn-link" %>
+              </li>
+            </ul>
           </li>
         <% else %>
           <li class="nav-item">

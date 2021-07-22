@@ -36,7 +36,7 @@ module Authors
     private
       # Only allow a list of trusted parameters through.
       def about_params
-        params.require(:about).permit(:title, :description, :body)
+        params.require(:about).permit(:title, :description, :body, :image)
       end
   end
 end

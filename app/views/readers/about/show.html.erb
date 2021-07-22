@@ -5,11 +5,11 @@
   </p>
 </div>
 <div class="row">
-  <% if @about.image.present? %>
-    <div class="col-lg-4">
-      <%= image_tag(@about.image_medium, class: "img-fluid") %>
-    </div>
-  <% end %>
+  <div class="col-lg-4">
+    <% if @about.image.present? %>
+        <%= image_tag(@about.image_medium, class: "img-fluid") %>
+    <% end %>
+  </div>
   <div class="col-lg-8 pt-4 pt-lg-0 content">
     <h3><%= @about.title %></h3>
     <p class="fst-italic">

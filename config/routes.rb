@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   
   scope module: 'readers' do
     get '/tagged' => "posts#tagged", as: :tagged
-    get '/about' => 'about#index'
     get '/blog/:id' => 'posts#show', as: :blog_post
+    get '/about' => 'about#show'
   end
   
-  
   scope module: 'authors' do
-    get 'stats' => 'stats#index'
+    resources :about, controller: "about", except: [:index, :show, :delete, :update]
+    patch '/about/:id/edit' => 'about#update'
+    get '/stats' => 'stats#index'
     resources :posts do
       resources :elements
     end

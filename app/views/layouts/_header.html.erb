@@ -27,6 +27,11 @@
             <% end %>
           </li>
           <li class="nav-item">
+            <%= button_to(new_about_path, method: :get, class: 'btn btn-link', style: "text-decoration: none;") do %>
+              <i class="nav-link fas fa-address-card align-middle"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
             <%= button_to(destroy_author_session_path, method: :delete, class: 'btn btn-link', style: "text-decoration: none;") do %>
               <i class="nav-link fas fa-sign-out-alt align-middle"></i>
             <% end %>

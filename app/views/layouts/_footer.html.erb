@@ -1,18 +1,26 @@
-
 <footer class="footer" style="background-color: #b7b7b7;">
   <div class="container container-fluid">
     <nav class="navbar nav-footer navbar-expand">
       <div class="navbar-nav mx-auto">
-        <div class="nav-item ">
-          <a class="btn btn-outline-light btn-floating m-1"
-              href="https://www.linkedin.com/in/fritjof-h%C3%B6st/"
-              role="button"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <div class="nav-item">
-          <a class="btn btn-outline-light btn-floating m-1"
-              href="https://github.com/FritjofH"
-              role="button"><i class="fab fa-github"></i></a>
-        </div>
+        <% if ExternalUrl.count > 0 %>
+          <% if ExternalUrl.first.contact.present? %>
+            <div class="nav-item ">
+              <a class="btn btn-outline-light btn-floating m-1"
+                  href="<%= ExternalUrl.first.linkedin %>"
+                  role="button"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if ExternalUrl.count > 0 %>
+          <% if ExternalUrl.first.contact.present? %>
+            <div class="nav-item ">
+              <a class="btn btn-outline-light btn-floating m-1"
+                  href="<%= ExternalUrl.first.github %>"
+                  role="button"><i class="fab fa-github"></i></a>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="text-center p-3"

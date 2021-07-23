@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_104815) do
+ActiveRecord::Schema.define(version: 2021_07_23_102617) do
 
   create_table "about_list_texts", force: :cascade do |t|
     t.string "title"
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 2021_07_21_104815) do
     t.index ["post_id"], name: "index_elements_on_post_id"
   end
 
+  create_table "external_urls", force: :cascade do |t|
+    t.string "contact"
+    t.string "github"
+    t.string "linkedin"
+    t.integer "about_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["about_id"], name: "index_external_urls_on_about_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -180,6 +190,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_104815) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "elements", "posts"
+  add_foreign_key "external_urls", "abouts"
   add_foreign_key "posts", "authors"
   add_foreign_key "taggings", "tags"
 end

@@ -9,7 +9,11 @@
         <% if About.count > 0 %>
           <li class="nav-item"><%= link_to 'About', about_path, class: "nav-link text-uppercase font-weight-bold align-middle" %></li>
         <% end %>
-        <li class="nav-item"><a href="https://www.linkedin.com/in/fritjof-h%C3%B6st/" class="nav-link text-uppercase font-weight-bold align-middle">Contact</a></li>
+        <% if ExternalUrl.count > 0 %>
+          <% if ExternalUrl.first.contact.present? %>
+            <li class="nav-item"><a href="<%= ExternalUrl.first.contact %>" class="nav-link text-uppercase font-weight-bold align-middle">Contact</a></li>
+          <% end %>
+        <% end %>
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if author_signed_in? %>

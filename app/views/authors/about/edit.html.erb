@@ -26,11 +26,11 @@
           </div>
         <% else %>
           <ul>
-            <% AboutListText.where(about_id: @about).order(position: :asc).each do |list_text| %>
+            <% AboutListText.where(about_id: @about).each do |list_text| %>
               <% if list_text.persisted? %>
                 <div class="mb-3 p-2">
                   <div class="paragraph-content">
-                    <% if list_text.title.present? || list_text.description.present? %>
+                    <% if (list_text.title.present? || list_text.description.present?) %>
                       <ul>
                         <li>  
                           <b><%= list_text.title %>:</b>

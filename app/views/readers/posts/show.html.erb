@@ -5,11 +5,19 @@
       <div class="card-body">
         <div class='pe-5 ps-5'>
           <em>
+            <i class="fas fa-calendar-alt"></i>
             <small>
               <%= @post.published_at.to_s(:nozone)%>
               </small>
           </em>
-          <h1 class="card-title mb-4"><%= @post.title%></h1>
+          <br>
+          <em>
+            <i class="fas fa-clock"></i>
+            <small>Reading time:
+              <%= reading_time(@post) %>   min
+            </small>
+          </em>
+          <h1 class="mb-4"><%= @post.title%></h1>
           <% @post.elements.order(position: :asc).each do |element| %>
             <% if element.image? %>
               <div class="image-element mb-5">

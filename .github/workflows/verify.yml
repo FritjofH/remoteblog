@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   security-checks:
-    name: security-checks
+    name: Sanity check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

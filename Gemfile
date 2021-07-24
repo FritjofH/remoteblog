@@ -21,6 +21,9 @@ gem 'friendly_id', '~> 5.4.0'
 gem "image_processing", '~> 1.2'
 gem 'impressionist'
 gem "stimulus_reflex", "~> 3.4"
+gem 'rubocop'
+gem 'bundler-audit'
+gem 'brakeman'
 
 gem 'pg'
 

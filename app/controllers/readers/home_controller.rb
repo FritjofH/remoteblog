@@ -11,7 +11,9 @@ module Readers
       @content = ""
       post.elements.each do |element|
         if element.element_type == "paragraph"
-          @content = @content + element.content.body.to_plain_text
+          if element.content.body != nil
+            @content = @content + element.content.body.to_plain_text
+          end
         end
       end
       (@content.scan(/\w+/).length / words_per_minute).to_i

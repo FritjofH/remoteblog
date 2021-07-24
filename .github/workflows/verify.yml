@@ -2,8 +2,8 @@ name: Verify
 on: [push]
 
 jobs:
-  linters:
-    name: Linters
+  security-checks:
+    name: security-checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -32,10 +32,40 @@ jobs:
         run: |
           yarn install --pure-lockfile
 
-      - name: Run linters
-        run: |
-          bin/rubocop --parallel
-      - name: Run security checks
-        run: |
-          bin/bundler-audit --update
-          bin/brakeman -q -w2
+  brakeman:
+    name: runner / brakeman
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: brakeman
+        uses: reviewdog/action-brakeman@v1
+        with:
+          brakeman_version: 5.1.1
+          github_token: ${{ secrets.github_token }}
+
+  audit:
+    name: audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 'Bundler Audit'
+        uses: andrewmcodes/bundler-audit-action@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  rubocop:
+    name: runner / rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.4
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v1
+        with:
+          rubocop_version: gemfile
+          rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
+          github_token: ${{ secrets.github_token }}

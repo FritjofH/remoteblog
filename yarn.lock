@@ -14,7 +14,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.14.7.tgz#7b047d7a3a89a67d2258dc61f604f098f1bc7e08"
   integrity sha512-nS6dZaISCXJ3+518CWiBfEr//gHyMO02uDxBkXTKZDN5POruCnOZ1N4YBRZDCabwF8nZMWBpRxIicmXtBs+fvw==
 
-"@babel/core@^7.14.3":
+"@babel/core@@^7.0.0-0", "@babel/core@^7.14.3":
   version "7.14.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.14.8.tgz#20cdf7c84b5d86d83fac8710a8bc605a7ba3f010"
   integrity sha512-/AtaeEhT6ErpDhInbXmjHcUQXH0L0TEgscfcxk1qbOvLuKCa5aZT0SOOtDKFY96/CLROwbLSKyFor6idgNaU4Q==
@@ -884,6 +884,20 @@
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
+
+"@jeygeethan/actiontext-backblaze@^6.1.3-alpha":
+  version "6.1.3-alpha"
+  resolved "https://registry.yarnpkg.com/@jeygeethan/actiontext-backblaze/-/actiontext-backblaze-6.1.3-alpha.tgz#59f49ca924277ef8ae72a6aef6adfc39467738eb"
+  integrity sha512-FmHlTN+LpUJDuevsiPtZVzIGMJC8k93xx8H+ALu9di3TkEmgLzZxUewrPk0A5WONGrN6Xa7reII5p8gPHXtjTA==
+  dependencies:
+    "@jeygeethan/activestorage-backblaze" "^6.1.2-alpha"
+
+"@jeygeethan/activestorage-backblaze@^6.1.2-alpha":
+  version "6.1.2-alpha"
+  resolved "https://registry.yarnpkg.com/@jeygeethan/activestorage-backblaze/-/activestorage-backblaze-6.1.2-alpha.tgz#eb3ae03864ea06c7c7799101f6d1e9815139677d"
+  integrity sha512-aIF2uOJXoIJa+aT5B41d8At6lFsgPYNqrNk+zslDdznTh58mEbnhijBrHyOBCT02qdevPnliTkmvm2LV8GrYdw==
+  dependencies:
+    spark-md5 "^3.0.0"
 
 "@npmcli/move-file@^1.0.1":
   version "1.1.2"

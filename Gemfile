@@ -29,6 +29,7 @@ gem 'pg'
 
 group :production do
   gem 'rails_12factor'
+  gem 'activestorage-backblaze'
 end
 
 group :development, :test do

@@ -24,6 +24,8 @@ gem "stimulus_reflex"
 gem 'rubocop'
 gem 'bundler-audit'
 gem 'brakeman'
+gem "redis"
+gem "hiredis"
 gem 'redis-session-store'
 
 gem 'pg'

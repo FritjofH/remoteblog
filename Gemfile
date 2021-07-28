@@ -3,27 +3,28 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
-gem 'rails', '~> 6.1.4'
+gem 'rails'
 
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma'
 
-gem 'sass-rails', '>= 6'
+gem 'sass-rails'
 
-gem 'webpacker', '~> 5.0'
+gem 'webpacker'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
-gem 'acts-as-taggable-on', '~> 7.0'
-gem 'friendly_id', '~> 5.4.0'
-gem "image_processing", '~> 1.2'
+gem 'acts-as-taggable-on'
+gem 'friendly_id'
+gem "image_processing"
 gem 'impressionist'
-gem "stimulus_reflex", "~> 3.4"
+gem "stimulus_reflex"
 gem 'rubocop'
 gem 'bundler-audit'
 gem 'brakeman'
+gem 'redis-session-store'
 
 gem 'pg'
 

@@ -1,9 +1,3 @@
-<% if Author.first.name.present? %>
-  <% content_for :title, Author.first.name + " - " + @post.title %>
-<% else %>
-  <% content_for :title, @post.title %>
-<% end %>
-
 <div class="row">
   <div class="col-lg-10 offset-lg-1">
     <div class="card post-card mb-5">
@@ -23,7 +17,7 @@
               <%= reading_time(@post) %>   min
             </small>
           </em>
-          <h1 class="mb-4"><%= @post.title%></h1>
+          <h1 class="mb-4"><%= title @post.title %></h1>
           <% @post.elements.order(position: :asc).each do |element| %>
             <% if element.image? %>
               <div class="image-element mb-5">

@@ -1,14 +1,11 @@
-<% if Author.first.name.present? %>
-  <% content_for :title, Author.first.name + " - Log In" %>
-<% else %>
-  <% content_for :title, "Log In" %>
-<% end %>
+<% nofollow %>
+<% noindex %>
 
 <div class="row">
   <div class="col-sm-4">
     <div class="card">
       <div class="card-header">
-        <h2>Log In</h2>
+        <h2><%= title "Sign In" %></h2>
       </div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

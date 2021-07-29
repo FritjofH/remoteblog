@@ -1,16 +1,10 @@
-<% if Author.first.name.present? %>
-  <% content_for :title, Author.first.name + " - New Post" %>
-<% else %>
-  <% content_for :title, "New Post" %>
-<% end %>
-
 <div class="row">
   <div class="col-md-4">
     <%= link_to 'Back', posts_path, class: 'btn btn-dark mb-3' %>
     
     <div class="card">
       <div class="card-header">
-        <h6 class='card-tite mb-0'>New post</h6>
+        <h6 class='card-tite mb-0'><% title "New Post" %></h6>
       </div>
       <div class="card-body">
         <%= render 'form', post: @post %>

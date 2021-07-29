@@ -1,8 +1,5 @@
-<% if Author.first.name.present? %>
-  <% content_for :title, Author.first.name + " - Home" %>
-<% else %>
-  <% content_for :title, "Home" %>
-<% end %>
+<% title "Home" %>
+<% description "Welcome to my blog!" %>
 
 <div class='row'>
   <% @posts.each do |post| %>

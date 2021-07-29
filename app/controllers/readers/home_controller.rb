@@ -4,6 +4,17 @@ module Readers
 
     def index
       @posts = Post.published.most_recently_published
+      @page_keywords = ""
+
+      @posts.each do |post|
+        post.tag_list.each do |tag|
+          @page_keywords += tag + ","
+        end
+      end
+
+      if @page_keywords.present?
+        @page_keywords = @page_keywords[0, @page_keywords.length - 1]
+      end
     end
 
     def reading_time(post)

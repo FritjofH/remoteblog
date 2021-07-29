@@ -5,6 +5,16 @@ module Readers
     def show
       @post = Post.published.friendly.find(params[:id])
       @tags = @post.tags
+      @page_description = @post.description
+      @page_keywords = ""
+
+      @tags.each do |tag|
+        @page_keywords += tag.name + ","
+      end
+
+      if @page_keywords.present?
+        @page_keywords = @page_keywords[0, @page_keywords.length - 1]
+      end
       
       impressionist(@post)
     end

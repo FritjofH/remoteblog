@@ -27,6 +27,7 @@ gem 'brakeman'
 gem "redis"
 gem "hiredis"
 gem 'redis-session-store'
+gem 'meta-tags'
 
 gem 'pg'
 

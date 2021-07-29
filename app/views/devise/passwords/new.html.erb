@@ -1,14 +1,8 @@
-<% if Author.first.name.present? %>
-  <% content_for :title, Author.first.name + " - Forgot Your Password?" %>
-<% else %>
-  <% content_for :title, "Forgot Your Password?" %>
-<% end %>
-
 <div class="row">
   <div class="col-sm-4">
     <div class="card">
       <div class="card-header">
-        <h2>Forgot your password?</h2>
+        <h2><%= title "Forgot your password?" %></h2>
       </div>
       <div class="card-body">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>

@@ -1,8 +1,6 @@
-<% if Author.first.name.present? %>
-  <% content_for :title, Author.first.name + " - Tagged with: " + @tag.name %>
-<% else %>
-  <% content_for :title, "Tagged with: " + @tag.name %>
-<% end %>
+<% title @tag.name%>
+<% keyword @tag.name %>
+<% description "All posts with the tag: " + @tag.name %>
 
 <div class='row'>
   <% @posts.each do |post| %>

@@ -1,11 +1,5 @@
-<% if Author.first.name.present? %>
-  <% content_for :title, Author.first.name + " - Posts" %>
-<% else %>
-  <% content_for :title, "Posts" %>
-<% end %>
-
 <h4 class='d-flex justify-content-between mb-4'>
-  <span>Posts</span>
+  <span><%= title "Posts" %></span>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
   </div>

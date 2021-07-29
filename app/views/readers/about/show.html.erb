@@ -2,7 +2,9 @@
   <div class="card-body">
     <div class="section-title">
       <h2>About</h2>
-      <p class="text-break"><%= @about.description %></p>
+      <div class="content-element mb-3">
+        <%= @about.description %>
+      </div>
     </div>
     <div class="row">
       <% if @about.image.present? %>
@@ -13,7 +15,7 @@
       <div class="col-lg-8 pt-4 pt-lg-0 content">
         <h3><%= @about.title %></h3>
         <% if @list_texts.present? %>
-          <ul style="column-count: 2; column-width: 300px;">
+          <ul class="pt-2" style="column-count: 2; column-width: 300px;">
             <% @list_texts.each do |list_text| %>
               <% if (list_text.title.present? && list_text.description.present?) %>
                 <% if (list_text.title.length > 0 && list_text.description.length > 0) %>

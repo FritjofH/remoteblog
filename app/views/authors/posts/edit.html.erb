@@ -1,3 +1,9 @@
+<% if Author.first.name.present? %>
+  <% content_for :title, Author.first.name + " - Editing: " + @post.title %>
+<% else %>
+  <% content_for :title, "Editing: " + @post.title %>
+<% end %>
+
 <div class="row">
   <div class="col-md-4">
     <%= link_to 'Back', posts_path, class: 'btn btn-dark mb-3' %>

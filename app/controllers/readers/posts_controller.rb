@@ -24,7 +24,7 @@ module Readers
 
     def tagged
       if params[:tag].present?
-        @tag = ActsAsTaggableOn::Tag.where(id: params[:tag]).first
+        @tag = ActsAsTaggableOn::Tag.find_by(id: params[:tag])
         @posts = Post.published.tagged_with(@tag)
       else
         @posts = Post.published.all

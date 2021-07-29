@@ -1,3 +1,9 @@
+<% if Author.first.name.present? %>
+  <% content_for :title, Author.first.name + " - Forgot Your Password?" %>
+<% else %>
+  <% content_for :title, "Forgot Your Password?" %>
+<% end %>
+
 <div class="row">
   <div class="col-sm-4">
     <div class="card">

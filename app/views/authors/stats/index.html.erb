@@ -1,3 +1,9 @@
+<% if Author.first.name.present? %>
+  <% content_for :title, Author.first.name + " - Stats" %>
+<% else %>
+  <% content_for :title, "Stats" %>
+<% end %>
+
 <h4 class='mb-4'>
   <span>Stats</span>
 </h4>

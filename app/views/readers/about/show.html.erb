@@ -1,3 +1,9 @@
+<% if Author.first.name.present? %>
+  <% content_for :title, Author.first.name + " - About" %>
+<% else %>
+  <% content_for :title, "About" %>
+<% end %>
+
 <div class="card">
   <div class="card-body">
     <div class="section-title">

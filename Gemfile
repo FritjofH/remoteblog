@@ -19,7 +19,9 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'friendly_id'
 gem "image_processing"
-gem 'impressionist'
+gem 'impressionist',
+  git: 'git@github.com:FritjofH/impressionist.git',
+  ref: '46a582ff8cd3496da64f174b30b91f9d97e86643'
 gem "stimulus_reflex"
 gem 'rubocop'
 gem 'bundler-audit'

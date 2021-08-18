@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% if Author.first.name.present? %>
+    <% if Author.first != nil && Author.first.name.present? %>
       <%= display_meta_tags site: Author.first.name %>
     <% else %>
       <%= display_meta_tags site: "Blog" %>

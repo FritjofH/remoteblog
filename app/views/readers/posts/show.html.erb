@@ -1,3 +1,17 @@
+<% set_meta_tags og: {
+  url: request.original_url,
+  type: "article", 
+  description: @post.description,
+  title: @post.title,
+  image: polymorphic_url(@post.header_image)
+},
+article: {
+  published_time: @post.published_at.to_s(:nozone),
+  tag: @page_keywords,
+  author: about_url
+},
+canonical: url_for(:only_path => false) %>
+
 <div class="row">
   <div class="col-lg-10 offset-lg-1">
     <div class="card post-card mb-5">
@@ -7,7 +21,7 @@
           <em>
             <i class="fas fa-calendar-alt"></i>
             <small>
-              <%= @post.published_at.to_s(:nozone)%>
+              <%= @post.published_at.to_s(:nozone) %>
               </small>
           </em>
           <br>

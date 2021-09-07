@@ -1,17 +1,27 @@
 <% title @tag.name%>
 <% description "All posts with the tag: " + @tag.name %>
+<% set_meta_tags noindex: true, follow: true %>
 
 <div class='row'>
   <% @posts.each do |post| %>
     <div class='col-md-6 col-lg-4 mb-4'>
-      <div class="card post-card" style="height:450px;">
-        <%= image_tag(post.header_image, class:"header-image", style: "height: 200px;") %>
+      <div class="card post-card">
+        <div class="header-image" style="background-image: url(<%= url_for(post.header_image) %>)"></div>
         <div class="card-body d-flex flex-column">
-            <em>
-              <small>
-                <%= post.published_at.to_s(:nozone)%>
-                </small>
-            </em>
+          <em>
+            <i class="fas fa-calendar-alt"></i>
+            <small class="text-start">
+              <%= post.published_at.to_s(:nozone)%>
+            </small>
+            <span style="float:right;">
+              <i class="fas fa-clock"></i>
+              <small>Reading time:
+                <%= reading_time(post) %>   min
+              </small>
+            </span>
+          </em>
+          <em>
+          </em>
           <h5 class="card-title"><%= post.title%></h5>
           <p class="card-text"><%= truncate(post.description, length: 200) %></p>
           <%= link_to 'Read Post', blog_post_path(post), class: 'btn btn-primary mt-auto' %>

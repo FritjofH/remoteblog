@@ -1,4 +1,11 @@
 <% description @about.description.to_plain_text %>
+<% set_meta_tags og: {
+  url: request.original_url,
+  type: "profile", 
+  description: @about.description,
+  title: @about.title 
+},
+canonical: url_for(:only_path => false) %>
 
 <div class="card">
   <div class="card-body">
@@ -10,6 +17,7 @@
     </div>
     <div class="row">
       <% if @about.image.present? %>
+        <% set_meta_tags og: {image: polymorphic_url(@about.image_medium) } %>
         <div class="col-lg-4 pt-2 text-center">
           <%= image_tag(@about.image_medium, class: "img-fluid") %>
         </div>

@@ -1,6 +1,30 @@
 <% title "Home" %>
 <% description "Welcome to my blog!" %>
 
+<% if Author.first.present? %>
+  <% set_meta_tags og: {
+    url: request.original_url,
+    type: "website", 
+    description: "Welcome to my blog!",
+    title: "Home - " + Author.first.name
+  },
+  canonical: url_for(:only_path => false) %>
+<% else %>
+  <% set_meta_tags og: {
+    url: request.original_url,
+    type: "website", 
+    description: "Welcome to my blog!",
+    title: "Home"
+  },
+  canonical: url_for(:only_path => false) %>
+<% end %>
+
+<% if @posts.present? %>
+  <% set_meta_tags og: {
+    image: polymorphic_url(Post.last.header_image)
+  }%>
+<% end %>
+
 <div class='row'>
   <% @posts.each do |post| %>
     <div class='col-md-6 col-lg-4 mb-4'>

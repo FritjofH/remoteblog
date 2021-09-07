@@ -28,10 +28,13 @@ class PageView < Impression
     date_range = (start_date.to_date..end_date.to_date).to_a.map do |date|
       date.strftime('%Y-%m-%d')
     end
+
     hash_with_zeros = {}
+
     date_range.each do |date|
       hash_with_zeros[date] = results_hash[date] || 0
     end
+    
     hash_with_zeros
   end
 

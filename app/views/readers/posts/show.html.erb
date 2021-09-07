@@ -7,7 +7,7 @@
 },
 article: {
   published_time: @post.published_at.to_s(:nozone),
-  tag: @page_keywords,
+  tag: @keywords,
   author: about_url
 },
 canonical: url_for(:only_path => false) %>
@@ -35,11 +35,13 @@ canonical: url_for(:only_path => false) %>
           <% @post.elements.order(position: :asc).each do |element| %>
             <% if element.image? %>
               <div class="image-element mb-5">
-                <%= image_tag(element.image)%>
                 <% if element.description.present? %>
+                  <%= image_tag element.image, loading: "lazy", alt: element.description %>
                   <div class="mt-1">
                     <em><small><%= element.description %></small></em>
                   </div>
+                <% else %>
+                  <%= image_tag element.image, loading: "lazy" %>
                 <% end %>
               </div>
             <% else %>

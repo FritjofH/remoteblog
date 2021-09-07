@@ -17,9 +17,14 @@ canonical: url_for(:only_path => false) %>
     </div>
     <div class="row">
       <% if @about.image.present? %>
-        <% set_meta_tags og: {image: polymorphic_url(@about.image_medium) } %>
+        <% set_meta_tags og: { image: polymorphic_url(@about.image_medium) } %>
         <div class="col-lg-4 pt-2 text-center">
-          <%= image_tag(@about.image_medium, class: "img-fluid") %>
+          <%= image_tag @about.image_medium, 
+            class: "img-fluid",
+            width: "400",
+            height: "400",
+            loading: "eager"
+          %>
         </div>
       <% end %>
       <div class="col-lg-8 pt-4 pt-lg-0 content">

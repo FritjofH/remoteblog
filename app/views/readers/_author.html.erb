@@ -1,8 +1,24 @@
 <% if @post.author.avatar.present? %>
   <div class="image text-center">
-    <%= image_tag(@post.author.avatar_thumbnail, class: "rounded-circle") %>
+  <% if @post.author.bio.present? %>
+    <%= image_tag @post.author.avatar_thumbnail, 
+      class: "rounded-circle", 
+      loading: "lazy", 
+      width: "150", 
+      height: "150", 
+      alt: @post.author.bio
+    %>
+  <% else %>
+    <%= image_tag @post.author.avatar_thumbnail, 
+      class: "rounded-circle", 
+      loading: "lazy", 
+      width: "150", 
+      height: "150" 
+    %>
+  <% end %>
   </div>
 <% end %>
+
 <% if @post.author.name.present? %>
   <div>
     <h6 class="text-center pt-2">
